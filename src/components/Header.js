@@ -19,7 +19,7 @@ export default function Header({ token }) {
         <Link to="/" className="hover:text-red-500">
           HOME
         </Link>
-        <Link to="/" className="hover:text-red-500">
+        <Link to="/about" className="hover:text-red-500">
           ABOUT
         </Link>
         
@@ -52,7 +52,7 @@ export default function Header({ token }) {
             <Link to="/" className="hover:text-red-500">
               HOME
             </Link>
-            <Link to="/" className="hover:text-red-500">
+            <Link to="/about" className="hover:text-red-500">
               ABOUT
             </Link>
          
