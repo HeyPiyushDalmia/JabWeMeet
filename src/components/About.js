@@ -9,7 +9,7 @@ export default function About() {
 
     <div className="bg-white text-red-600 mt-5">
       {/* <header className="bg-red-600 text-white py-12 md:py-24"> */}
-        <div className="bg-red-600 text-white container mx-auto px-4 md:px-6">
+        <div className="bg-red-600 text-white   mx-auto px-4 md:px-6">
           <div className="grid gap-6 md:grid-cols-2 items-center">
             <div>
               <h1 className=" text-6xl font-bold mb-4">Welcome to Our Meetup</h1>
@@ -64,7 +64,7 @@ export default function About() {
         </div>
 
         {/* meet our team */}
-        <section className="py-12 bg-red-600 md:py-24">
+        <section className="py-12 bg-red-600 md:py-24 mx-auto">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl text-white font-bold mb-8 text-center">Meet Our Team</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

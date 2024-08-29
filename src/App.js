@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Index from "./components/Index";
 import Footer from "./components/Footer";
 import Contact from "./components/Contactus"
+import About from "./components/About";
 import '../src/Assets/Css/Styles.css'
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
      <Header token={token}/>
      <Routes>
      <Route path="/" element={<Index />} />
+     <Route path="/about" element={<About />} />
      <Route path="/contact" element={<Contact />} />
      </Routes>
     
