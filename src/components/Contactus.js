@@ -92,70 +92,7 @@ export default function Contactus() {
 
 
 
-      {/* <div className="flex flex-col items-center w-full min-h-screen p-8 bg-gray-100">
-      <div className="grid w-full max-w-6xl gap-8 md:grid-cols-2">
-        <div className="space-y-8">
-          <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
-            <div>
-              <div className="flex items-center space-x-4">
-                <FaPhoneAlt className="w-10 h-10 text-[#E65100]" />
-                <div>
-                  <h3 className="text-lg font-bold">Phone</h3>
-                  <p className="text-gray-600">+2569 09833 59</p>
-                  <p className="text-gray-600">+2569 09833 59</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center space-x-4">
-                <FaMapMarkerAlt  className="w-10 h-10 text-[#E65100]" />
-                <div>
-                  <h3 className="text-lg font-bold">Address</h3>
-                  <p className="text-gray-600">861 S.Grand Prairie Pkwy</p>
-                  <p className="text-gray-600">Grand Prairie TX 5891</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center space-x-4">
-                <IoMdMail className="w-10 h-10 text-[#E65100]" />
-                <div>
-                  <h3 className="text-lg font-bold">Email</h3>
-                  <p className="text-gray-600">youremail@here.com</p>
-                  <p className="text-gray-600">www.yourweb.com</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <form className="space-y-4">
-            <div className="space-y-2">
-              <label >Name</label>
-              <input id="name" placeholder="Enter your name" />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="email">Email</label>
-              <input id="email" placeholder="Enter your email" type="email" />
-            </div>
-            <div className="space-y-2">
-              <label>Feedback</label>
-              <textarea id="feedback" placeholder="Enter your feedback" className="min-h-[100px]" />
-            </div>
-            <button type="submit">Submit Feedback</button>
-          </form>
-        </div>
-
-        <div className="w-full h-[500px]">
-          <iframe
-            title="Google Maps"
-            className="w-full h-full border-0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531590452!3d-37.8162797420216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577b3b3b3b3b3b!2sEnvato!5e0!3m2!1sen!2sus!4v1632972833450!5m2!1sen!2sus"
-            allowFullScreen=""
-            loading="lazy"
-          />
-        </div>
-
-      </div>
-    </div> */}
+     
   
     </div>
   )
