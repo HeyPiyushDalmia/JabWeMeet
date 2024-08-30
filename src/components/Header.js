@@ -34,7 +34,7 @@ export default function Header({ token }) {
     <button className="navbar_button">MY ACCOUNT</button>
   </Link>
 ) : (
-  <Link to="/">
+  <Link to="/login">
     <button className="navbar_button">LOGIN</button>
   </Link>
 )}
@@ -67,7 +67,7 @@ export default function Header({ token }) {
     <button className="navbar_button">My Account</button>
   </Link>
 ) : (
-  <Link to="/">
+  <Link to="/login">
     <button className="navbar_button">LOGIN</button>
   </Link>
 )}

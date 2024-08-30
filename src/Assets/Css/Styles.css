@@ -6,6 +6,33 @@
     font-weight: 500;
     margin-left: 10px;
   }
+
+  .login_input {
+    width: 100%;
+    padding: 16px 32px 16px 32px;
+    border-radius: 8px;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    --tw-placeholder-opacity: 1;
+    color: rgb(190, 91, 10, var(--tw-placeholder-opacity));
+    border-width: 1px;
+    border-color: #f3f4f6;
+    font-size: 14px;
+    line-height: 20px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-border-opacity: 1;
+    border-color: #9ca3af;
+    --tw-bg-opacity: 1;
+    margin-bottom: 20px;
+  }
+
+
+
+
+
+
+
   .footer {
 
     background-color: #000000;

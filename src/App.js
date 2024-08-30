@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Index from "./components/Index";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import Login from "./components/Login";
 import '../src/Assets/Css/Styles.css'
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
      <Routes>
      <Route path="/" element={<Index />} />
      <Route path="/about" element={<About />} />
+     <Route path="/login" element={<Login/>} />
+
      </Routes>
     
     <Footer/>
