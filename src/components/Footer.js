@@ -29,13 +29,13 @@ export default function Footer() {
             </div>
 
             <div class="px-5 py-2">
-              <a href="/" className="footer_links ">
+              <a href="/contact" className="footer_links ">
                 Contact
               </a>
             </div>
 
             <div class="px-5 py-2">
-              <a href="/" className="footer_links text-base leading-6 ">
+              <a href="/login" className="footer_links text-base leading-6 ">
                 Login
               </a>
             </div>

@@ -26,7 +26,7 @@ export default function Header({ token }) {
         <Link to="/" className="hover:text-red-500">
           EVENTS
         </Link>
-        <Link to="/" className="hover:text-red-500">
+        <Link to="/contact" className="hover:text-red-500">
           CONTACT
         </Link>
         {token === "true" ? (
@@ -59,7 +59,7 @@ export default function Header({ token }) {
             <Link to="/" className="hover:text-red-500">
               EVENTS
             </Link>
-            <Link to="/" className="hover:text-red-500">
+            <Link to="/contact" className="hover:text-red-500">
               CONTACT
             </Link>
             {token === "true" ? (
