@@ -29,7 +29,7 @@
 
   .login_button {
     background-color: #C6011F;
-    color: #000000;
+    color: #ffffff;
     font-weight: 600;
     padding-top: 16px;
     padding-bottom: 16px;
@@ -51,7 +51,63 @@
   }
 
 
-
+  .create_event_img
+  {
+    /* background-repeat: no-repeat; */
+    object-fit: fill;
+  
+    background-size: 100% 900px;
+  }
+  
+  .create_event_main_div
+  {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 80%;
+    height: 50%;
+    justify-self: center;
+    align-self: center;
+    color: #eaeffa;
+    font-size: larger;
+    font-weight: 500;
+    /* background-color: white; */
+    /* mix-blend-mode:luminosity; */
+  }
+  /* .adopt_signup_img
+  {
+    
+  } */
+  
+  .create_event_head
+  {
+    /* margin-left: auto;
+    margin-right: auto;
+    display: block;
+    justify-self: center;
+    align-self: center; */
+    text-align: center;
+    background-color: #eefcff;
+    color:#000000;
+    
+  }
+  
+  .create_event_button
+  {margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 60%;
+    height: 98%;
+    justify-self: center;
+    align-self: center;
+    /* opacity: 0; */
+  }
+  
+  .cards {
+    flex-direction: row;
+  }
 
 
 
