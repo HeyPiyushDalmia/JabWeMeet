@@ -29,7 +29,7 @@ export default function Footer() {
             </div>
 
             <div class="px-5 py-2">
-              <a href="/contact" className="footer_links ">
+              <a href="/contacta" className="footer_links ">
                 Contact
               </a>
             </div>
