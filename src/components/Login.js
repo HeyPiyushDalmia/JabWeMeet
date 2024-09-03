@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import login_page from "../Assets/img/home_hero_image.jpg";
+import login_image from "../Assets/img/login_image.jpg";
 export default function Login() {
   return (
     <>
-      <div className="grid md:grid-cols-2 min-h-screen w-full">
+      <div className="grid md:grid-cols-2 min-h-screen w-full bg-red-100">
         <div className="flex items-center justify-center bg-primary text-primary-foreground">
           <div className="max-w-md space-y-6 px-4 py-12 sm:px-6 lg:px-8">
             <div className="space-y-2 text-center">
@@ -38,14 +38,14 @@ export default function Login() {
             <p className="text-center text-sm text-muted-foreground">
               Don&apos;t have an account?{" "}
               <button className="p-x-5 text-red-600 text-bold">
-                <Link to="/">Sign up</Link>
+                <Link to="/signup">Sign up</Link>
               </button>
             </p>
           </div>
         </div>
         <div className="hidden md:block">
           <img
-            src={login_page}
+            src={login_image}
             alt="Login illustration"
             width={1920}
             height={1080}

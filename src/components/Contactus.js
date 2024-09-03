@@ -1,26 +1,13 @@
 import React from 'react'
-
-
-
-
 import { FaPhoneAlt } from "react-icons/fa";
-
 import { IoMdMail } from "react-icons/io";
-
 import { FaMapMarkerAlt } from "react-icons/fa";
-
-
-
-
-
-
-
 
 export default function Contactus() {
   return (
     <div>
 
-<section className="bg-white dark:bg-gray-900">
+<section className="bg-red-100 dark:bg-red-100">
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
       <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
       <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">"Got questions, ideas, or just want to say hi? We're here to help you make every meeting memorable. Reach out, and let's create something amazing together!"</p>
@@ -28,7 +15,7 @@ export default function Contactus() {
   </div>
 </section>
 
-<div className="flex flex-col items-center w-full min-h-screen p-8 bg-gray-100">
+<div className="flex flex-col items-center w-full min-h-screen p-8 bg-white">
       <div className="grid w-full max-w-6xl gap-8 md:grid-cols-2">
         <div className="space-y-8">
           <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
@@ -52,25 +39,25 @@ export default function Contactus() {
               <IoMdMail className="w-10 h-10 text-[#E65100]" />
               <div>
                 <h3 className="text-lg font-bold">Email</h3>
-                <p className="text-gray-600">youremail@here.com</p>
-                <p className="text-gray-600">www.yourweb.com</p>
+                <p className="text-gray-600">customersupport@jabwemeet.com</p>
+                <p className="text-gray-600">www.jabwemeet.com</p>
               </div>
             </div>
           </div>
           <form className="space-y-4">
             <div className="space-y-2">
-              <label >Name</label>
-              <input id="name" placeholder="Enter your name" />
+              <label className="mx-2" >Name</label>
+              <input className="mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="name" placeholder="Enter your name" />
             </div>
             <div className="space-y-2">
-              <label >Email</label>
-              <input id="email" placeholder="Enter your email" type="email" />
+              <label className="mx-2" >Email</label>
+              <input id="email" placeholder="Enter your email" type="email" className='mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline' />
             </div>
             <div className="space-y-2">
-              <label >Feedback</label>
-              <textarea id="feedback" placeholder="Enter your feedback" className="min-h-[100px]" />
+              <label className="mx-2">Feedback</label>
+              <textarea clas id="feedback" placeholder="Enter your feedback" className="min-h-[100px] mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
             </div>
-            <button type="submit">Submit Feedback</button>
+            <button type="submit" className="login_button flex item-center  w-4/5   hover: ml-auto m-auto">Submit Feedback</button>
           </form>
         </div>
         <div className="w-full h-[500px]">
@@ -85,15 +72,6 @@ export default function Contactus() {
       </div>
     </div>
 
-
-
-
-
-
-
-
-     
-  
     </div>
   )
 }
