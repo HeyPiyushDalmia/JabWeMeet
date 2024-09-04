@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Link} from "react-router-dom";
 import about_img1 from "../Assets/img/aboutgroup.jpeg";
-import piyush from "../Assets/img/piyush2.jpg";
+import piyush from "../Assets/img/piyush.jpg";
 import gaurav from "../Assets/img/gaurav.jpg";
 import priya from "../Assets/img/priya.jpg";
 export default function About() {
@@ -72,18 +72,16 @@ export default function About() {
                 <div className='rounded-full overflow-hidden'>
                 <img
                   src={gaurav}
-                  width="400"
-                  height="50%"
-                  alt="John Doe"
-                  className="w-full h-10 object-cover "
-                  style={{ aspectRatio: "400/400", objectFit: "cover",height:"50%" }}
+                  alt="gaurav"
+                  className="object-cover rounded-full"
+                  style={{aspectRatio:"400/400",objectFit: "cover",height:"10%"}}
                 />
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl text-black font-bold mb-2">Gaurav Sati</h3>
                   <p className="text-red-600 mb-2">Organizer</p>
                   <p className="text-gray-600">
-                    John is the founder and driving force behind our meetup group. He is passionate about building a
+                    Gaurav is the founder and driving force behind our meetup group. He is passionate about building a
                     thriving community and connecting like-minded individuals.
                   </p>
                 </div>
@@ -92,31 +90,29 @@ export default function About() {
                 <div className='rounded-full overflow-hidden'>
                 <img
                   src={piyush}
-                  width="400"
-                  height="50%"
-                  alt="Jane Smith"
-                  className="w-full h-48 object-cover rounded-full"
-                  style={{ aspectRatio: "400/400", objectFit: "cover" ,height:"50%"}}
+                  alt="piyush"
+                  className="object-cover rounded-full"
+                  style={{aspectRatio:"400/400",objectFit: "cover" ,height:"10%"}}
                 />
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl text-black font-bold mb-2">Piyush Dalmia</h3>
                   <p className="text-red-600 mb-2">Co-Organizer</p>
                   <p className="text-gray-600">
-                    Jane is a passionate community builder and event organizer. She works tirelessly to ensure our
+                    Piyush is a passionate community builder and event organizer. She works tirelessly to ensure our
                     meetups are engaging and valuable for all attendees.
                   </p>
                 </div>
               </div>
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className=' overflow-hidden'>
                 <img
                   src={priya}
-                  width="400"
-                  height="400"
-                  alt="Michael Johnson"
-                  className="w-full h-48 object-contain rounded-full"
-                  style={{ aspectRatio: "400/400", objectFit: "cover" ,height:"70%"}}
+                  alt="priya"
+                  className="object-cover rounded-full"
+                  style={{ aspectRatio: "400/400", objectFit: "cover" ,height:"50%"}}
                 />
+                </div>
                 <div className="p-4">
                   <h3 className="text-xl text-black font-bold mb-2">Priya Joshi</h3>
                   <p className="text-red-600 mb-2">Community Manager</p>
