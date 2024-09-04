@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Contact from "./components/Contactus"
 import About from "./components/About";
 import Login from "./components/Login";
+import Signup from './components/Signup'
 import CreateEvent from "./components/CreateEvent";
 import '../src/Assets/Css/Styles.css'
 function App() {
@@ -26,6 +27,8 @@ function App() {
      <Route path="/contact" element={<Contact />} />
      <Route path="/login" element={<Login />} />
      <Route path="/createevent" element={<CreateEvent />} />
+     <Route path="/signup" element={<Signup />} />
+
     
      </Routes>
     
