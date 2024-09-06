@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link} from "react-router-dom";
 
 export default function Header({ token }) {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   return (
 
 <header className="flex flex-row items-center justify-between sm:justify-around p-2 border-b-2 bg-white">
