@@ -22,7 +22,7 @@ export default function Index() {
           </p>
           <Link
             to="/about"
-            className="inline-flex items-center justify-center h-12 px-6 rounded-md bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-20"
+            className="inline-flex items-center justify-center h-12 px-6 rounded-md  text-primary-foreground font-medium transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-20"
             
           >
            <button className="navbar_button">Know More </button>

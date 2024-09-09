@@ -1,9 +1,67 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
+const Contactus=() => {
+  const [userData, setUserData] = useState ({
+		name : "",
+		email:"",
+    feedback:"",
+	});
 
-export default function Contactus() {
+  let name,value;
+  const postUserData = (event) =>{
+    name = event.target.name;
+    value = event.target.value;
+    setUserData({...userData, [name]:value})
+  }
+
+  //connection with the firebase
+
+  const submitData = async(event) =>{
+          event.preventDefault();
+          // destructure
+          const {name, email, feedback} = userData;
+          if(name && email && feedback)
+            {
+
+           
+          const res = await fetch("https://jabwemeet-51e30-default-rtdb.firebaseio.com/userContactus.json",
+            { method: "POST",
+            Headers:
+            {
+              "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+              name,
+              email,
+              feedback
+            })
+          }
+          );
+          if(res)
+            {
+              setUserData({
+                name : "",
+                email:"",
+                feedback:"",
+              })
+              alert("your query has been submitted");
+            }else{
+              alert("Please fill the data");
+            } 
+          }
+          else{
+            alert("Please fill the data");
+          } 
+          
+  };
+
+ 
+
+
+
+
   return (
     <div>
 
@@ -44,20 +102,38 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <form className="space-y-4">
+          <form className="space-y-4" method="POST">
             <div className="space-y-2">
               <label className="mx-2" >Name</label>
-              <input className="mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="name" placeholder="Enter your name" />
+              <input className="mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
+              id=""
+              name="name"
+              placeholder="Enter your name "
+              value={userData.name}
+              onChange={postUserData}
+              />
             </div>
             <div className="space-y-2">
               <label className="mx-2" >Email</label>
-              <input id="email" placeholder="Enter your email" type="email" className='mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline' />
+              <input type="email" className='mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+              id=""
+              name="email" 
+              placeholder="Enter your email"
+              value={userData.email}
+              onChange={postUserData}
+              />
             </div>
             <div className="space-y-2">
               <label className="mx-2">Feedback</label>
-              <textarea clas id="feedback" placeholder="Enter your feedback" className="min-h-[100px] mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
+              <textarea  className="min-h-[100px] mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
+              id=""
+              name="feedback" 
+              placeholder="Enter your feedback"
+              value={userData.feedback}
+              onChange={postUserData}
+              />
             </div>
-            <button type="submit" className="login_button flex item-center  w-4/5   hover: ml-auto m-auto">Submit Feedback</button>
+            <button type="submit" className="login_button flex item-center  w-4/5   hover: ml-auto m-auto" onClick={submitData}>Submit Feedback</button>
           </form>
         </div>
         <div className="w-full h-[500px]">
@@ -75,3 +151,4 @@ export default function Contactus() {
     </div>
   )
 }
+export default Contactus

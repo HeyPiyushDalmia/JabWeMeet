@@ -1,7 +1,11 @@
-import React from 'react'
+import {React, useState} from 'react'
 import home_image from '../Assets/img/home_hero_image.jpg'
 
 export default function Signup() {
+	const [userData, setUserData] = useState({
+		firstName : "",
+		lastName:"",
+	});
   return (
  <>
 
