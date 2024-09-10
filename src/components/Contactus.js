@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
-const Contactus=() => {
+export const Contactus=() => {
+
+  
+ {/*
+  
+  // code for the connection with the firebase (don't remove the commented code until the final deployment)
+
   const [userData, setUserData] = useState ({
 		name : "",
 		email:"",
@@ -57,8 +63,29 @@ const Contactus=() => {
           
   };
 
- 
+ */}
+ const [contact, setContactData] = useState({
+  name:"",
+  email:"",
+  feedback:"",
+});
 
+const handleInput =(e)=>{
+  console.log(e);
+  let name = e.target.name;
+  let value = e.target.value;
+
+  setContactData({...contact, 
+    [name]:value,
+  });
+};
+
+
+
+const handleSubmit = (e) =>{
+  e.preventDefault();
+  console.log(contact);
+}
 
 
 
@@ -102,15 +129,15 @@ const Contactus=() => {
               </div>
             </div>
           </div>
-          <form className="space-y-4" method="POST">
+          <form className="space-y-4" method="POST" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="mx-2" >Name</label>
               <input className="mx-5 w-4/5 h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
               id=""
               name="name"
               placeholder="Enter your name "
-              value={userData.name}
-              onChange={postUserData}
+              value={contact.name}
+              onChange={handleInput}
               />
             </div>
             <div className="space-y-2">
@@ -119,8 +146,8 @@ const Contactus=() => {
               id=""
               name="email" 
               placeholder="Enter your email"
-              value={userData.email}
-              onChange={postUserData}
+              value={contact.email}
+              onChange={handleInput}
               />
             </div>
             <div className="space-y-2">
@@ -129,11 +156,11 @@ const Contactus=() => {
               id=""
               name="feedback" 
               placeholder="Enter your feedback"
-              value={userData.feedback}
-              onChange={postUserData}
+              value={contact.feedback}
+              onChange={handleInput}
               />
             </div>
-            <button type="submit" className="login_button flex item-center  w-4/5   hover: ml-auto m-auto" onClick={submitData}>Submit Feedback</button>
+            <button type="submit" className="login_button flex item-center  w-4/5   hover: ml-auto m-auto">Submit Feedback</button>
           </form>
         </div>
         <div className="w-full h-[500px]">
@@ -149,6 +176,7 @@ const Contactus=() => {
     </div>
 
     </div>
+   
   )
 }
 export default Contactus

@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Signup from './components/Signup'
 import CreateEvent from "./components/CreateEvent";
 import SubMenu from "./components/SubMenu";
+import Pagenotfound from './components/Pagenotfound';
 import '../src/Assets/Css/Styles.css'
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
      <Route path="/createevent" element={<CreateEvent />} />
      <Route path="/signup" element={<Signup />} />
      <Route path="/SubMenu" element={<SubMenu/>} />
+     <Route path ="*" element={<Pagenotfound/>}/>
 
      </Routes>
     

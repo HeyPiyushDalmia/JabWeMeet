@@ -17,30 +17,30 @@ export default function Footer() {
             </div>
 
             <div className="px-5 py-2">
-              <a href="/" class="footer_links ">
+              <a href="/" className="footer_links ">
                 About
               </a>
             </div>
 
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <a href="/" className="footer_links ">
                 Events
               </a>
             </div>
 
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <a href="/contacta" className="footer_links ">
                 Contact
               </a>
             </div>
 
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <a href="/login" className="footer_links text-base leading-6 ">
                 Login
               </a>
             </div>
           </nav>
-          <div class="flex justify-center mt-8 space-x-6">
+          <div className="flex justify-center mt-8 space-x-6">
             <a
               href="https://www.facebook.com"
               className="text-gray-400 hover:text-blue-500"
@@ -54,8 +54,8 @@ export default function Footer() {
               <FaInstagram className="footer_icons " />
             </a>
 
-            <a href="/" class="text-gray-400 hover:text-blue-500">
-              <span class="sr-only">Twitter</span>
+            <a href="/" className="text-gray-400 hover:text-blue-500">
+              <span className="sr-only">Twitter</span>
               <FaSquareXTwitter className="footer_icons " />
             </a>
 
