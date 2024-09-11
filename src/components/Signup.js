@@ -1,8 +1,30 @@
-import React from 'react'
+import {React, useState} from 'react'
 import home_image from '../Assets/img/home_hero_image.jpg'
 
-export default function Signup() {
-  return (
+export const Signup=()=> {
+	const [user, setUserData] = useState({
+		firstname : "",
+		lastname:"",
+		email:"",
+		password:"",
+	});
+
+	const handleInput =(e)=>{
+		console.log(e);
+		let name = e.target.name;
+		let value = e.target.value;
+
+		setUserData({...user, 
+			[name]:value,
+		});
+	};
+
+
+
+	const handleSubmit = (e) =>{
+		e.preventDefault();
+	}
+  return ( 
  <>
 
 <div className="h-full bg-red-200 dark:bg-gray-900">
@@ -17,51 +39,63 @@ export default function Signup() {
 				{/* <!-- Col --> */}
 				<div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
 					<h3 className="py-4 text-2xl text-center text-gray-800 dark:text-white">Create an Account!</h3>
-					<form className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded">
+					<form className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded" onSubmit={handleSubmit}>
 						<div className="mb-4 md:flex gap-12">
 							<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white " for="firstName">
+								<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white " htmlFor="firstname">
                                     First Name
                                 </label>
 								<input
                                     className=" w-full h-3/3 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline "
-                                    id="firstName"
+                                    id="firstname"
                                     type="text"
+									name="firstname"
+									value={user.firstname}
                                     placeholder="First Name"
+									onChange={handleInput}
                                 />
 							</div>
 							<div className="md:ml-2">
-								<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white " for="lastName">
+								<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white " htmlFor="lastname">
                                     Last Name
                                 </label>
 								<input
                                     className="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline px-10"
-                                    id="lastName"
+                                    id="lastname"
                                     type="text"
+									name="lastname"
+									value={user.lastname}
+									onChange={handleInput}
                                     placeholder="Last Name"
                                 />
 							</div>
 						</div>
 						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="email">
+							<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white" htmlFor="email">
                                 Email
                             </label>
 							<input
                                 className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                 id="email"
                                 type="email"
+								name="email"
+								value={user.email}
+								onChange={handleInput}
                                 placeholder="Email"
                             />
 						</div>
 						<div className="mb-4">
 							<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="password">
+								<label className="block mb-2 text-sm font-bold text-gray-700 dark:text-white" htmlFor="password">
                                     Password
                                 </label>
 								<input
                                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     id="password"
                                     type="password"
+									name="password"
+									value={user.password}
+									onChange={handleInput}
                                     placeholder="Enter password"
                                 />
 	
@@ -94,3 +128,5 @@ export default function Signup() {
  </>
   )
 }
+
+export default Signup

@@ -1,7 +1,27 @@
-import React from "react";
+import {React, useState} from "react";
 import { Link } from "react-router-dom";
 import login_image from "../Assets/img/login_image.jpg";
-export default function Login() {
+export const Login=() => {
+  const [user, setUserData] = useState({
+		email:"",
+		password:"",
+	});
+
+	const handleInput =(e)=>{
+		console.log(e);
+		let name = e.target.name;
+		let value = e.target.value;
+
+		setUserData({...user, 
+			[name]:value,
+		});
+	};
+
+
+
+	const handleSubmit = (e) =>{
+		e.preventDefault();
+	}
   return (
     <>
       <div className="grid md:grid-cols-2 min-h-screen w-full bg-red-100">
@@ -15,17 +35,26 @@ export default function Login() {
                 Enter your email and password below to access your account.
               </p>
             </div>
-            <form method="POST" id="Adopter-login">
+            <form method="POST" id="Adopter-login" onSubmit={handleSubmit}>
               <input
                 type="email"
                 className="login_input" 
                 placeholder=" Email"
+                id="email"
+                name="email"
+                value={user.email}
+                onChange={handleInput}
               />
              
               <input
                 type="password"
                 className="login_input"
                 placeholder="Password"
+                id="email"
+                name="password"
+                value={user.password}
+                onChange={handleInput}
+
               />
 
               <button
@@ -57,3 +86,5 @@ export default function Login() {
     </>
   );
 }
+
+export default Login
