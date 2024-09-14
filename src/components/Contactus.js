@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
+// import { useNavigate } from 'react-router-dom';
 export const Contactus=() => {
 
-  
  {/*
   
   // code for the connection with the firebase (don't remove the commented code until the final deployment)
@@ -70,6 +70,9 @@ export const Contactus=() => {
   feedback:"",
 });
 
+// const navigate = useNavigate();
+
+
 const handleInput =(e)=>{
   console.log(e);
   let name = e.target.name;
@@ -82,9 +85,36 @@ const handleInput =(e)=>{
 
 
 
-const handleSubmit = (e) =>{
+const handleSubmit = async (e) =>{
   e.preventDefault();
-  console.log(contact);
+  // console.log(contact);
+  try {
+			
+		
+		const response = await fetch('http://localhost:5000/api/form/contact', {
+			method:"POST",
+			headers: {
+				"Content-Type" : "application/json"
+			},
+			body: JSON.stringify(contact),
+		
+		});
+		console.log(response);
+
+		if(response.ok)
+			{
+        alert("Your query has been submitted we will get back to you :)");
+				setContactData({
+					name:"",
+					email:"",
+					feedback:""});
+					// navigate("/login");
+
+			}
+	
+	} catch (error) {
+			console.log("contact", error);
+	}
 }
 
 
@@ -179,4 +209,6 @@ const handleSubmit = (e) =>{
    
   )
 }
+
+
 export default Contactus

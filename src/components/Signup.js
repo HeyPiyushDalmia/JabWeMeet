@@ -1,6 +1,6 @@
 import {React, useState} from 'react'
 import home_image from '../Assets/img/home_hero_image.jpg'
-
+import { useNavigate } from 'react-router-dom';
 export const Signup=()=> {
 	const [user, setUserData] = useState({
 		firstname : "",
@@ -8,6 +8,8 @@ export const Signup=()=> {
 		email:"",
 		password:"",
 	});
+
+	const navigate = useNavigate();
 
 	const handleInput =(e)=>{
 		console.log(e);
@@ -21,9 +23,40 @@ export const Signup=()=> {
 
 
 
-	const handleSubmit = (e) =>{
+	const handleSubmit = async(e) =>{
 		e.preventDefault();
+			// console.log(user);
+		try {
+			
+		
+		const response = await fetch('http://localhost:5000/api/users/register', {
+			method:"POST",
+			headers: {
+				"Content-Type" : "application/json"
+			},
+			body: JSON.stringify(user),
+		
+		});
+		console.log(response);
+
+		if(response.ok)
+			{
+				const res_data = await response.json();
+				console.log('res from server', res_data);
+				//stored teh token in the local storage
+				storeTokenInLS(res_data.token);    
+				setUserData({firstname : "",
+					lastname:"",
+					email:"",
+					password:""});
+					navigate("/login");
+
+			}
+	
+	} catch (error) {
+			console.log("register", error);
 	}
+	};
   return ( 
  <>
 
@@ -105,7 +138,7 @@ export const Signup=()=> {
 						<div className="mb-6 text-center">
 							<button
                                 className="w-full px-4 py-2 font-bold text-white rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline login_button"
-                                type="button"
+                                type="submit"
                             >
                                 Register Account
                             </button>
