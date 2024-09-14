@@ -1,6 +1,7 @@
 import {React, useState} from 'react'
 import home_image from '../Assets/img/home_hero_image.jpg'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../store/auth';
 export const Signup=()=> {
 	const [user, setUserData] = useState({
 		firstname : "",
@@ -10,6 +11,7 @@ export const Signup=()=> {
 	});
 
 	const navigate = useNavigate();
+	const {storeTokenInLS} = useAuth();
 
 	const handleInput =(e)=>{
 		console.log(e);
@@ -43,8 +45,10 @@ export const Signup=()=> {
 			{
 				const res_data = await response.json();
 				console.log('res from server', res_data);
+
 				//stored teh token in the local storage
 				storeTokenInLS(res_data.token);    
+
 				setUserData({firstname : "",
 					lastname:"",
 					email:"",

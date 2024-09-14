@@ -2,6 +2,8 @@ import {React, useState} from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import login_image from "../Assets/img/login_image.jpg";
+import { useAuth } from '../store/auth';
+
 export const Login=() => {
   const [user, setUserData] = useState({
 		email:"",
@@ -9,6 +11,8 @@ export const Login=() => {
 	});
 
 	const navigate = useNavigate();
+	const {storeTokenInLS} = useAuth();
+
 
 	const handleInput =(e)=>{
 		console.log(e);
@@ -39,7 +43,10 @@ export const Login=() => {
   
       if(response.ok)
         {
-          alert("Login successful");
+          const res_data = await response.json();
+          //stored teh token in the local storage
+				storeTokenInLS(res_data.token);
+
           setUserData({
             email:"",
             password:""});

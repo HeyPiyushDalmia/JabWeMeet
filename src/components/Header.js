@@ -1,10 +1,11 @@
 import React,{useState} from "react";
 import { GrClose } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link} from "react-router-dom";
-
+import { Link, NavLink} from "react-router-dom";
+import { useAuth } from "../store/auth";
 export default function Header({ token }) {
   const [showMenu, setShowMenu] = useState(true);
+   const {isLoggedIn} = useAuth();
   return (
 <>
 
@@ -30,10 +31,10 @@ export default function Header({ token }) {
         <Link to="/contact" className="hover:text-red-500">
           CONTACT
         </Link>
-        {token === "true" ? (
-  <Link to="/">
+        {isLoggedIn  ? (
+  <NavLink to="/myaccount">
     <button className="navbar_button">MY ACCOUNT</button>
-  </Link>
+  </NavLink>
 ) : (
   <Link to="/login">
     <button className="navbar_button">LOGIN</button>
@@ -63,8 +64,8 @@ export default function Header({ token }) {
             <Link to="/contact" className="hover:text-red-500">
               CONTACT
             </Link>
-            {token === "true" ? (
-  <Link to="/my_account">
+            {isLoggedIn ? (
+  <Link to="/myaccount">
     <button className="navbar_button">My Account</button>
   </Link>
 ) : (
