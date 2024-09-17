@@ -1,49 +1,56 @@
 import React,{useEffect,useState} from 'react'
 import Submenu from "./SubMenu"
-import axios from "axios";
+// import axios from "axios";
 import Myacc from "./Myacc"
 export default function Myaccount() {
-  const [data,setData]=useState([]);
-  const API='https://dummyjson.com/users';
-  // const fetchApiData= async (url)=>{
+  const[perform,setPer]=useState([]);
+  const fetchApiData= async ()=>{
+    try{
+      const response = await fetch('http://localhost:5000/api/event/myaccount',{
+        method:"GET",
+      });
+
+      if(response.ok)
+      {
+        const data=await response.json();
+        console.log(data.data);
+        setPer(data.data);
+      }
+      
+    }
+    catch(error)
+    {
+      console.log(`error${error}`);
+    }
+
+  }
+  // const getApiData= async ()=>{
   //   try{
-  //     const res = await fetch(url);
-  //     const data=await res.json();
-  //     console.log(data);
+  //     const res = await axios.get(API);
+  //     console.log(res);
+  //     setData(res);
   //   }
   //   catch(error)
   //   {
   //     console.log(error);
   //   }
-
   // }
-  const getApiData= async ()=>{
-    try{
-      const res = await axios.get(API);
-      console.log(res.data.users);
-      setData(res.data.users);
-    }
-    catch(error)
-    {
-      console.log(error);
-    }
-  }
   useEffect(()=>{
-    getApiData(API);
+    fetchApiData();
   },[])
   return (
     <>
-        <div>
+        <div className='mb-10'>
             <Submenu/>
         </div>
         <ul>
           {
-            data.map((curElem) => {
+            perform.map((curElem) => {
               return <Myacc 
               key={curElem.id}
               mData={curElem}/>
             })
-          }
+          } 
         </ul>
     </>
   )
