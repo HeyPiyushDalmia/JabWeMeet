@@ -17,8 +17,11 @@ export default function Myacc({mData}) {
               <h1 className='overflow-hidden pr-5 text-lg font-bold'>{eventname}
               </h1>
               <p> {eventDescription}</p>
+              <input type="button" value="Register" className='login_button'/>
             </div>
+           
         </div>
+        
     </div>
   )
 }
