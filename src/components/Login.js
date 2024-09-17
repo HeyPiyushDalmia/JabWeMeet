@@ -1,11 +1,18 @@
 import {React, useState} from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import login_image from "../Assets/img/login_image.jpg";
+import { useAuth } from '../store/auth';
+
 export const Login=() => {
   const [user, setUserData] = useState({
 		email:"",
 		password:"",
 	});
+
+	const navigate = useNavigate();
+	const {storeTokenInLS} = useAuth();
+
 
 	const handleInput =(e)=>{
 		console.log(e);
@@ -19,8 +26,39 @@ export const Login=() => {
 
 
 
-	const handleSubmit = (e) =>{
+	const handleSubmit = async(e) =>{
 		e.preventDefault();
+    // console.log(user);
+    try {
+			
+      const response = await fetch('http://localhost:5000/api/users/login', {
+        method:"POST",
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(user),
+      
+      });
+      console.log(response);
+  
+      if(response.ok)
+        {
+          const res_data = await response.json();
+          //stored teh token in the local storage
+				storeTokenInLS(res_data.token);
+
+          setUserData({
+            email:"",
+            password:""});
+            navigate("/myaccount");
+  
+        }else{
+          alert('invalid credential');
+        }
+    
+    } catch (error) {
+        console.log("register", error);
+    }
 	}
   return (
     <>
@@ -50,7 +88,7 @@ export const Login=() => {
                 type="password"
                 className="login_input"
                 placeholder="Password"
-                id="email"
+                id="password"
                 name="password"
                 value={user.password}
                 onChange={handleInput}

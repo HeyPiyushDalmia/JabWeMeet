@@ -7,6 +7,8 @@ export default function SubMenu() {
     <Link to="/createevent"className='login_button p-5'>Create Event</Link>
     <Link className='login_button p-5'>Recent listed Events</Link>
     <Link className='login_button p-5'>Attended Events</Link>
+    <Link to="/logout" className='login_button p-5'>Logout</Link>
+
   </div>
    </>
   )

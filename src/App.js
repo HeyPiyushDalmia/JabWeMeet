@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 import Index from "./components/Index";
@@ -11,19 +11,15 @@ import CreateEvent from "./components/CreateEvent";
 import SubMenu from "./components/SubMenu";
 import Myaccount from "./components/Myaccount";
 import Pagenotfound from './components/Pagenotfound';
+import Logout from "./components/Logout";
 import '../src/Assets/Css/Styles.css'
 function App() {
 
-  const [token, setToken] = useState(false);
-  useEffect(() => {
-    setToken(token);
-    console.log(token);
-  }, [token]);
 
   return (
     <>
     <BrowserRouter>
-     <Header token={token}/>
+     <Header/>
      <Routes>
      <Route path="/" element={<Index />} />
      <Route path="/about" element={<About />} />
@@ -34,6 +30,8 @@ function App() {
      <Route path="/SubMenu" element={<SubMenu/>} />
      <Route path="/Myaccount" element={<Myaccount/>} />
      <Route path ="*" element={<Pagenotfound/>}/>
+     <Route path="/logout" element={<Logout/>} />
+
 
      </Routes>
     
