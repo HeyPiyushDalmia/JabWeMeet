@@ -3,7 +3,7 @@ import { GrClose } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, NavLink} from "react-router-dom";
 import { useAuth } from "../store/auth";
-export default function Header({ token }) {
+export default function Header() {
   const [showMenu, setShowMenu] = useState(true);
    const {isLoggedIn} = useAuth();
   return (

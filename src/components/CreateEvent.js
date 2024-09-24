@@ -1,5 +1,5 @@
 import {React} from 'react'
-import home_image from '../Assets/img/create_event_background.jpg'
+import create_event_background from '../Assets/img/create_event_background.jpg'
 import SubMenu from './SubMenu'
 
 export default function CreateEvent() {
@@ -37,7 +37,7 @@ export default function CreateEvent() {
      </div>
       
       <div body className=" create_event_img h-max mb-10 mt-5"  >
-       <body className="create_event_img h-max mt-2" style={{ backgroundImage:`url(${home_image})` }} > 
+       <body className="create_event_img h-max mt-2" style={{ backgroundImage:`url(${create_event_background})` }} > 
       {/* <img src={home_image}/>  */}
       <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-3xl px-0 create_event_main_div bg-white"
         data-v0-t="card"

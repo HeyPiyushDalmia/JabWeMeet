@@ -3,6 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
 // import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../store/auth';
 export const Contactus=() => {
 
  {/*
@@ -69,6 +70,21 @@ export const Contactus=() => {
   email:"",
   feedback:"",
 });
+
+const [userData, setUserData] = useState(true);
+
+const {user} = useAuth();
+ 
+if (userData && user) {
+  setContactData({
+    name : user.firstname,
+    email: user.email,
+    feedback: "",
+  });
+
+
+  setUserData(false);
+}
 
 // const navigate = useNavigate();
 
