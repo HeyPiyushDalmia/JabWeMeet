@@ -25,7 +25,7 @@ export default function Header() {
           ABOUT
         </Link>
         
-        <Link to="/" className="hover:text-red-500">
+        <Link to="/events" className="hover:text-red-500">
           EVENTS
         </Link>
         <Link to="/contact" className="hover:text-red-500">
@@ -58,7 +58,7 @@ export default function Header() {
               ABOUT
             </Link>
          
-            <Link to="/" className="hover:text-red-500">
+            <Link to="/events" className="hover:text-red-500">
               EVENTS
             </Link>
             <Link to="/contact" className="hover:text-red-500">

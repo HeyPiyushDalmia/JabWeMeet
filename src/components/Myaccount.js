@@ -10,11 +10,13 @@ export default function Myaccount() {
         method:"GET",
       });
 
+      console.log("response",response)
+
       if(response.ok)
       {
         const data=await response.json();
-        console.log(data.data);
-        setPer(data.data);
+        console.log(data.response);
+        setPer(data.response);
       }
       
     }
@@ -45,7 +47,7 @@ export default function Myaccount() {
         </div>
         <ul>
           {
-            perform.map((curElem) => {
+            perform.map((curElem,) => {
               return <Myacc 
               key={curElem.id}
               mData={curElem}/>

@@ -131,7 +131,7 @@ const handleSubmit = async (e) =>{
 	} catch (error) {
 			console.log("contact", error);
 	}
-}
+};
 
 
 

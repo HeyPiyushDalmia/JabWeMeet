@@ -13,6 +13,7 @@ import Myaccount from "./components/Myaccount";
 import Pagenotfound from './components/Pagenotfound';
 import Logout from "./components/Logout";
 import '../src/Assets/Css/Styles.css'
+import Events from "./components/Events";
 function App() {
 
 
@@ -31,6 +32,7 @@ function App() {
      <Route path="/Myaccount" element={<Myaccount/>} />
      <Route path ="*" element={<Pagenotfound/>}/>
      <Route path="/logout" element={<Logout/>} />
+    <Route path="/events" element={<Events/>}/>
 
 
      </Routes>

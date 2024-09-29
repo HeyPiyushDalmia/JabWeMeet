@@ -5,8 +5,10 @@ export const AuthProvider =({children})=>{
 
     const [token,setToken] = useState(localStorage.getItem("token"));
     const [user, setUser] = useState("");
+    const [events, setEvents] = useState([ ]);
 
     const storeTokenInLS = (serverToken) => {
+        setToken(serverToken);
         return localStorage.setItem("token", serverToken)
     };
 
@@ -43,17 +45,33 @@ const userAuthentication = async ()=>{
     } catch (error) {
         console.log("Error fetching user data");
     }
+};
+
+const getEventsData = async ()=>{
+try {
+   const response = await fetch("http://localhost:5000/api/event/events",{
+    method:"GET"
+   });
+   if (response.ok) {
+    const events = await response.json();
+    setEvents(events.data);
+   } 
+   console.log("Events", response)
+} catch (error) {
+   console.log(error); 
 }
+};
 
 useEffect(()=>{
     userAuthentication();
+    getEventsData();
 },[])
 
 
 
     return (
     
-    <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, user }}>
+    <AuthContext.Provider value={{storeTokenInLS, LogoutUser, isLoggedIn, user, events }}>
         {children}
     </AuthContext.Provider>
     ); 

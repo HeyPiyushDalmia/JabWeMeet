@@ -57,7 +57,7 @@ export const Login=() => {
         }
     
     } catch (error) {
-        console.log("register", error);
+        console.log("login", error);
     }
 	}
   return (

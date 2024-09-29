@@ -1,6 +1,8 @@
-import {React} from 'react'
+import {React, useState} from 'react'
 import create_event_background from '../Assets/img/create_event_background.jpg'
 import SubMenu from './SubMenu'
+import { useNavigate } from 'react-router-dom';
+
 
 export default function CreateEvent() {
 
@@ -27,6 +29,93 @@ export default function CreateEvent() {
     //     const file = e.target.files ? e.target.files[0] : null;
     //     setBanner(file);
     //   };
+
+    const [createEvent, setCreateEvent] = useState({
+      eventname:"",
+      description:"",
+      audience:"",
+      type:"",
+      attendees:"",
+      ticketPrice:"",
+      tech:"",
+      agenda:"",
+      hostname:"",
+      email:"",
+      eventdate:"",
+      country:"",
+      address:"",
+      city:"",
+      state:"",
+      postal:"",
+      twitter:"",
+      linkedin:"",
+      instagram:"",
+      website:"",
+    });
+
+const navigate = useNavigate();
+
+
+    const handleInput =(e)=>{
+      console.log(e);
+      let name = e.target.name;
+      let value = e.target.value;
+    
+      setCreateEvent({...createEvent, 
+        [name]:value,
+      });
+    };
+
+    const handleSubmit = async (e) =>{
+      e.preventDefault();
+      console.log(createEvent);
+      try {
+          
+        
+        const response = await fetch("http://localhost:5000/api/event/create", {
+          method:"POST",
+          headers: {
+            "Content-Type" : "application/json"
+          },
+          body: JSON.stringify(createEvent),
+        
+        });
+        console.log("Response from the browser",response);
+    
+        if(response.ok)
+          {
+            alert("You have created event Successfully");
+            setCreateEvent({
+              eventname:"",
+      description:"",
+      audience:"",
+      type:"",
+      attendees:"",
+      ticketPrice:"",
+      tech:"",
+      agenda:"",
+      hostname:"",
+      email:"",
+      eventdate:"",
+      country:"",
+      address:"",
+      city:"",
+      state:"",
+      postal:"",
+      twitter:"",
+      linkedin:"",
+      instagram:"",
+      website:""});
+              navigate("/Myaccount");
+    
+          }else{
+            alert('Event is not created due to some technical reason');
+          }
+      
+      } catch (error) {
+          console.log("createEvent", error);
+      }
+    };
       
     return (
 
@@ -49,7 +138,7 @@ export default function CreateEvent() {
 
         </div>
 
-        <form method = "POST" >
+        <form method = "POST" onSubmit={handleSubmit}>
 
         
         <div className="p-6 space-y-6">
@@ -64,9 +153,9 @@ export default function CreateEvent() {
                     <input
                       type="text"
                       name="eventname"
-                      id="eventname"
-                    //   value={eventname}
-                    //   onChange={(e) => setEventName(e.target.value)}
+                      id="eventname1"
+                      value={createEvent.eventname}
+                      onChange={handleInput}
                       autoComplete="given-name"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -81,14 +170,14 @@ export default function CreateEvent() {
                     <textarea
                       id="description"
                       name="description"
-                    //   value={description}
+                      value={createEvent.description}
                       rows={3}
-                    //   onChange={(e) => setDescription(e.target.value)}
+                      onChange={handleInput}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       defaultValue={""}
                     />
             </div>
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
             <label
                     htmlFor="banner"
                     className="block text-sm font-medium leading-6 text-black"
@@ -103,7 +192,7 @@ export default function CreateEvent() {
                           pattern="/(\.jpg|\.jpeg|\.png|\.gif)$/i"
                           className="border-2 rounded-md w-full px-3 py-2 mt-1"
                         />
-            </div>
+            </div> */}
             </div>
             <div className="  pb-12 w-full m-auto p-auto text-center inline mt-5">
             <h2 className="text-base font-semibold leading-7 text-gray-900 mt-5">
@@ -126,8 +215,8 @@ export default function CreateEvent() {
                       type="text"
                       name="audience"
                       id="audience"
-                    //   value={audience}
-                    //   onChange={(e) => setAudience(e.target.value)}
+                      value={createEvent.audience}
+                      onChange={handleInput}
                       placeholder="Ex: Developers, Designers"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -143,10 +232,11 @@ export default function CreateEvent() {
                     <select
                       id="type"
                       name="type"
-                    //   value={type}
-                    //   onChange={(e) => setType(e.target.value)}
+                      value={createEvent.type}
+                      onChange={handleInput}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
+                      <option></option>
                       <option>In Person</option>
                       <option>Virtual</option>
                     </select>
@@ -162,24 +252,24 @@ export default function CreateEvent() {
                       id="attendees"
                       name="attendees"
                       type="number"
-                    //   value={attendees}
-                    //   onChange={(e) => setAttendees(Number(e.target.value))}
+                      value={createEvent.attendees}
+                      onChange={handleInput}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
             </div>
             <div className="space-y-2">
             <label
-                    htmlFor="price"
+                    htmlFor="ticketPrice"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     Ticket Price (Enter 0 if free)
                   </label>
                     <input
-                      id="price"
-                      name="price"
+                      id="ticketPrice"
+                      name="ticketPrice"
                       type="number"
-                    //   value={price}
-                    //   onChange={(e) => setPrice(Number(e.target.value))}
+                      value={createEvent.ticketPrice}
+                      onChange={handleInput}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
             </div>
@@ -193,10 +283,11 @@ export default function CreateEvent() {
                     <select
                       id="tech"
                       name="tech"
-                    //   value={tech}
-                    //   onChange={(e) => setTech(e.target.value)}
+                      value={createEvent.tech}
+                      onChange={handleInput}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
+                      <option></option>
                       <option>Yes</option>
                       <option>No</option>
                       <option>Not sure</option>
@@ -207,8 +298,8 @@ export default function CreateEvent() {
               Agenda
             </label>
             <input type="text" name="agenda"id="agenda" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    //   value={agenda}
-                    //   onChange={(e) => setAgenda(e.target.value)} 
+                      value={createEvent.agenda}
+                      onChange={handleInput} 
                     />
             </div>
             </div>
@@ -232,8 +323,8 @@ export default function CreateEvent() {
                       type="text"
                       name="hostname"
                       id="hostname"
-                    //   value={hostname}
-                    //   onChange={(e) => setHostName(e.target.value)}
+                      value={createEvent.hostname}
+                      onChange={handleInput}
                       autoComplete="given-name"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -249,8 +340,8 @@ export default function CreateEvent() {
                       type="date"
                       name="eventdate"
                       id="eventdate"
-                    //   value={eventdate}
-                    //   onChange={(e) => setEventDate(e.target.value)}
+                      value={createEvent.eventdate}
+                      onChange={handleInput}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
             </div> 
@@ -265,8 +356,8 @@ export default function CreateEvent() {
                       id="email"
                       name="email"
                       type="email"
-                    //   value={email}
-                    //   onChange={(e) => setEmail(e.target.value)}
+                      value={createEvent.email}
+                      onChange={handleInput}
                       autoComplete="email"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -284,8 +375,8 @@ export default function CreateEvent() {
                       type="text"
                       name="country"
                       id="country"
-                    //   value={country}
-                    //   onChange={(e) => setCountry(e.target.value)}
+                      value={createEvent.country}
+                      onChange={handleInput}
                       autoComplete="country"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -302,8 +393,8 @@ export default function CreateEvent() {
                       type="text"
                       name="address"
                       id="address"
-                    //   value={address}
-                    //   onChange={(e) => setAddress(e.target.value)}
+                      value={createEvent.address}
+                      onChange={handleInput}
                       autoComplete="street-address"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -320,8 +411,8 @@ export default function CreateEvent() {
                       type="text"
                       name="city"
                       id="city"
-                    //   value={city}
-                    //   onChange={(e) => setCity(e.target.value)}
+                      value={createEvent.city}
+                      onChange={handleInput}
                       autoComplete="address-level2"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -338,8 +429,8 @@ export default function CreateEvent() {
                       type="text"
                       name="state"
                       id="state"
-                    //   value={state}
-                    //   onChange={(e) => setState(e.target.value)}
+                      value={createEvent.state}
+                      onChange={handleInput}
                       autoComplete="address-level1"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -356,8 +447,8 @@ export default function CreateEvent() {
                       type="number"
                       name="postal"
                       id="postal"
-                    //   value={postal}
-                    //   onChange={(e) => setPostal(e.target.value)}
+                      value={createEvent.postal}
+                      onChange={handleInput}
                       autoComplete="postal-code"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -384,8 +475,8 @@ export default function CreateEvent() {
                       type="text"
                       name="twitter"
                       id="twitter"
-                    //   value={twitter}
-                    //   onChange={(e) => setTwitter(e.target.value)}
+                      value={createEvent.twitter}
+                      onChange={handleInput}
                       placeholder="https://www.twitter.com/"
                       pattern="https://.*"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -404,8 +495,8 @@ export default function CreateEvent() {
                       type="text"
                       name="linkedin"
                       id="linkedin"
-                    //   value={linkedin}
-                    //   onChange={(e) => setLinkedin(e.target.value)}
+                      value={createEvent.linkedin}
+                      onChange={handleInput}
                       placeholder="https://www.linkedin.com/"
                       pattern="https://.*"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -424,8 +515,8 @@ export default function CreateEvent() {
                       type="text"
                       name="website"
                       id="website"
-                    //   value={website}
-                    //   onChange={(e) => setWebsite(e.target.value)}
+                      value={createEvent.website}
+                      onChange={handleInput}
                       placeholder="https://coolwebsite.com/"
                       pattern="https://.*"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -446,8 +537,8 @@ export default function CreateEvent() {
                       type="text"
                       name="instagram"
                       id="instagram"
-                    //   value={instagram}
-                    //   onChange={(e) => setInstagram(e.target.value)}
+                      value={createEvent.instagram}
+                      onChange={handleInput}
                       placeholder="https://www.instagram.com/"
                       pattern="https://.*"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -457,7 +548,7 @@ export default function CreateEvent() {
           </div>
           
 
-      <button class="text-white text-2l font-medium px-4 py-2 rounded shadow login_button create_event_button"> Create Event
+      <button className="text-white text-2l font-medium px-4 py-2 rounded shadow login_button create_event_button"> Create Event
        </button>
        </div>
           </form>

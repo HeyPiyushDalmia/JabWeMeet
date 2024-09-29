@@ -53,7 +53,7 @@ export const Signup=()=> {
 					lastname:"",
 					email:"",
 					password:""});
-					navigate("/login");
+					navigate("/Myaccount");
 
 			}
 	
