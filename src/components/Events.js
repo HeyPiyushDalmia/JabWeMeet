@@ -47,11 +47,23 @@ const Event = () => {
               <div className="p-4">
                 <h3 className="text-lg font-bold mb-2">{curElem.eventname}</h3>
                 <p className="text-gray-600 mb-4">{curElem.description}</p>
+
                 <div className="flex justify-between items-center">
                   <button className="bg-red-600 hover:bg-black text-white font-bold py-2 px-4 rounded w-full">
-                    Contact For Rent
+                    More Details
                   </button>
                 </div>
+                <div className="mt-4">
+                        <h4 className="text-gray-800 font-bold mb-2">Specifications</h4>
+                        <ul className="list-disc pl-4 text-gray-600">
+                          <li>Type: {curElem.type}</li>
+                          {/* <li>Speed: {printer.specs.speed}</li>
+                          <li>Resolution: {printer.specs.resolution}</li>
+                          <li>Connectivity: {printer.specs.connectivity}</li>
+                          <li>Dimensions: {printer.specs.dimensions}</li>
+                          <li>Weight: {printer.specs.weight}</li> */}
+                        </ul>
+                      </div>
               </div>
             </div>
           ))}

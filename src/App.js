@@ -14,6 +14,7 @@ import Pagenotfound from './components/Pagenotfound';
 import Logout from "./components/Logout";
 import '../src/Assets/Css/Styles.css'
 import Events from "./components/Events";
+import EventDetails from "./components/EventDetails";
 function App() {
 
 
@@ -33,6 +34,7 @@ function App() {
      <Route path ="*" element={<Pagenotfound/>}/>
      <Route path="/logout" element={<Logout/>} />
     <Route path="/events" element={<Events/>}/>
+    <Route path="/eventdetails/:id" element={<EventDetails/>}/>
 
 
      </Routes>

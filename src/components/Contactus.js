@@ -154,8 +154,8 @@ const handleSubmit = async (e) =>{
               <FaPhoneAlt className="w-10 h-10 text-[#E65100]" />
               <div>
                 <h3 className="text-lg font-bold">Phone</h3>
-                <p className="text-gray-600">+2569 09833 59</p>
-                <p className="text-gray-600">+2569 09833 59</p>
+                <p className="text-gray-600">+91 9711778932</p>
+                <p className="text-gray-600">+91 8882564417</p>
               </div>
             </div>
             <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">

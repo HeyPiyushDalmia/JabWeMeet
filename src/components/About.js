@@ -99,7 +99,7 @@ export default function About() {
                   <h3 className="text-xl text-black font-bold mb-2">Piyush Dalmia</h3>
                   <p className="text-red-600 mb-2">Co-Organizer</p>
                   <p className="text-gray-600">
-                    Piyush is a passionate community builder and event organizer. She works tirelessly to ensure our
+                    Piyush is a passionate community builder and event organizer. He works tirelessly to ensure our
                     meetups are engaging and valuable for all attendees.
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function About() {
                   <h3 className="text-xl text-black font-bold mb-2">Priya Joshi</h3>
                   <p className="text-red-600 mb-2">Community Manager</p>
                   <p className="text-gray-600">
-                    Michael is our community manager, responsible for fostering connections, organizing events, and
+                    Priya Joshi is our community manager, responsible for fostering connections, organizing events, and
                     ensuring our members feel welcomed and supported.
                   </p>
                 </div>
